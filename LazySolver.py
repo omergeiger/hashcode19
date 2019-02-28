@@ -29,12 +29,12 @@ class Solver:
         return slide_arr
 
     def select_slide_idx(self):
-        if self.last_similarity is  None:
+        if len(self.slideshow) == 0:
             # dummy choice, slide 0
             return 0
 
         last_slide = self.slideshow[-1]
-        self.last_similarity = {ndx: Evaluator.calcInterest(last_slide, self.slideshow[ndx]) for ndx in range(self.slideshow)}
+        self.last_similarity = {ndx: Evaluator.calcInterest(last_slide, self.slide_arr[ndx]) for ndx in range(len(self.slide_arr))}
         idx_score_pairs = self.last_similarity.items()
         best = max(idx_score_pairs, key=lambda p: p[1])
         return best[0]
@@ -76,14 +76,14 @@ if __name__ == '__main__':
     # slvr.solve(path="/Users/ogeiger/git/hashcode19/resources/input/b_lovely_landscapes.txt")
     # slvr.output_solution("/Users/ogeiger/git/hashcode19/resources/solutions/b_lovely_landscapes.txt")
 
-    slvr = Solver()
-    slvr.solve(path="/Users/ogeiger/git/hashcode19/resources/input/c_memorable_moments.txt")
-    slvr.output_solution("/Users/ogeiger/git/hashcode19/resources/solutions/c_memorable_moments.txt")
-
-    slvr = Solver()
-    slvr.solve(path="/Users/ogeiger/git/hashcode19/resources/input/d_pet_pictures.txt")
-    slvr.output_solution("/Users/ogeiger/git/hashcode19/resources/solutions/d_pet_pictures.txt")
-
+    # slvr = Solver()
+    # slvr.solve(path="/Users/ogeiger/git/hashcode19/resources/input/c_memorable_moments.txt")
+    # slvr.output_solution("/Users/ogeiger/git/hashcode19/resources/solutions/c_memorable_moments.txt")
+    #
+    # slvr = Solver()
+    # slvr.solve(path="/Users/ogeiger/git/hashcode19/resources/input/d_pet_pictures.txt")
+    # slvr.output_solution("/Users/ogeiger/git/hashcode19/resources/solutions/d_pet_pictures.txt")
+    #
     slvr = Solver()
     slvr.solve(path="/Users/ogeiger/git/hashcode19/resources/input/e_shiny_selfies.txt")
     slvr.output_solution("/Users/ogeiger/git/hashcode19/resources/solutions/e_shiny_selfies.txt")
