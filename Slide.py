@@ -13,7 +13,12 @@ class Slide:
         else:
             self.tags = photo1.tags
 
-
+    def __str__(self):
+        if self.photo2 is None:
+            out_str = f"{self.photo1.id}\n"
+        else:
+            out_str = f"{self.photo1.id} {self.photo2.id}\n"
+        return out_str
 
 if __name__ == '__main__':
     p = Parser()

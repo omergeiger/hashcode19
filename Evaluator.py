@@ -12,7 +12,7 @@ def calcInterest(photo1, photo2):
     diff_1 = photo1.tags - photo2.tags
     diff_2 = photo2.tags - photo1.tags
     min_score = min(len(diff_1),len(diff_2),len(photos_intersection))
-    print(len(diff_1),len(diff_2),len(photos_intersection))
+    # print(len(diff_1),len(diff_2),len(photos_intersection))
     return min_score
 
 
